@@ -1,0 +1,3 @@
+nome;sigla;carga
+fundamentos computacionais 2;fac 2;50
+fundamentos computacionais;fac;50
