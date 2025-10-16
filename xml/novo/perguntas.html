@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>CRUD de Perguntas</title>
+  <script>
+    function enviarFormulario(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "perguntas-api.php", true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          alert("Operação realizada!");
+          carregarPerguntas();
+          event.target.reset();
+          document.querySelector("input[name=acao]").value = "salvar";
+          const inputLinha = document.querySelector("input[name=linha]");
+          if (inputLinha) inputLinha.remove();
+        }
+      };
+      xhr.send(formData);
+    }
+
+    function carregarPerguntas() {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "perguntas-api.php", true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          document.getElementById("lista").innerHTML = xhr.responseText;
+        }
+      };
+      xhr.send();
+    }
+
+
+    function editar(id) {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "perguntas-api.php?edit=" + id, true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const dados = JSON.parse(xhr.responseText);
+          if (dados.length === 0) {
+            alert("Registro não encontrado.");
+            return;
+          }
+          document.querySelector("input[name=pergunta1]").value = dados[0] || "";
+          document.querySelector("input[name=pergunta2]").value = dados[1] || "";
+          document.querySelector("input[name=pergunta3]").value = dados[2] || "";
+          document.querySelector("input[name=pergunta4]").value = dados[3] || "";
+          document.querySelector("select[name=pergunta5]").value = dados[4] || "";
+          document.querySelector("input[name=acao]").value = "atualizar";
+
+          if (!document.querySelector("input[name=linha]")) {
+            const hidden = document.createElement("input");
+            hidden.type = "hidden";
+            hidden.name = "linha";
+            document.querySelector("form").appendChild(hidden);
+          }
+          document.querySelector("input[name=linha]").value = id;
+        }
+      };
+      xhr.send();
+    }
+
+    window.onload = carregarPerguntas;
+  </script>
+</head>
+<body>
+  <h2>CRUD de Perguntas</h2>
+  <form onsubmit="enviarFormulario(event)">
+    <input type="hidden" name="acao" value="salvar" />
+    <label>Pergunta 1: <input name="pergunta1" required /></label><br />
+    <label>Pergunta 2: <input name="pergunta2" required /></label><br />
+    <label>Pergunta 3: <input name="pergunta3" required /></label><br />
+    <label>Pergunta 4: <input name="pergunta4" required /></label><br />
+    <label>
+      Pergunta 5 (múltipla escolha):
+      <select name="pergunta5" required>
+        <option value="">Selecione</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+      </select>
+    </label><br /><br />
+    <button>Salvar</button>
+  </form>
+
+  <hr />
+  <div id="lista"></div>
+  <p><a href="menu.html">Voltar ao Menu</a></p>
+</body>
+</html>
