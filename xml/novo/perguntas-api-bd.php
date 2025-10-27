@@ -8,6 +8,7 @@ $db   = "alunos";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
+
 if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
@@ -17,6 +18,7 @@ if (isset($_POST['acao']) && $_POST['acao'] == "salvar") {
     $nome = $_POST['nome'] ?? '';
     $matricula = $_POST['matricula'] ?? '';
     $cpf = $_POST['cpf'] ?? '';
+
 
     if (!empty($nome) && !empty($matricula) && !empty($cpf)) {
 
