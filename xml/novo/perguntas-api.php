@@ -1,41 +1,66 @@
 <?php
+$arquivo = "perguntas.txt";
 
-$host = "localhost";
-$user = "root";      
-$pass = "";           
-$db   = "alunos";     
-
-
-$conn = new mysqli($host, $user, $pass, $db);
-
-if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
+function criarArquivo($arquivo) {
+  if (!file_exists($arquivo)) {
+    file_put_contents($arquivo, "pergunta1;pergunta2;pergunta3;pergunta4;pergunta5;\n");
+  }
 }
 
-if (isset($_POST['acao']) && $_POST['acao'] == "salvar") {
+criarArquivo($arquivo);
 
-    $nome = $_POST['nome'] ?? '';
-    $matricula = $_POST['matricula'] ?? '';
-    $cpf = $_POST['cpf'] ?? '';
+if (isset($_POST['acao'])) {
+  $p = [];
+  for ($i = 1; $i <= 5; $i++) {
+    $p[$i] = $_POST["pergunta$i"] ?? '';
+  }
 
-    if (!empty($nome) && !empty($matricula) && !empty($cpf)) {
+  $linhas = file($arquivo);
 
-        $stmt = $conn->prepare("INSERT INTO aluno (nome, matricula, cpf) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $nome, $matricula, $cpf);
+  if ($_POST['acao'] == "salvar") {
+   
+    file_put_contents($arquivo, implode(";", $p) . ";\n", FILE_APPEND);
+  }
 
-        if ($stmt->execute()) {
-            echo "Registro inserido com sucesso!";
-        } else {
-            echo "Erro ao inserir: " . $stmt->error;
-        }
-
-        $stmt->close();
-    } else {
-        echo "Preencha todos os campos.";
+  if ($_POST['acao'] == "atualizar" && isset($_POST['linha'])) {
+    $index = (int) $_POST['linha'];
+    if (isset($linhas[$index])) {
+      $linhas[$index] = implode(";", $p) . ";\n";
+      file_put_contents($arquivo, implode("", $linhas));
     }
-
-    exit;
+  }
+  exit;
 }
 
-$conn->close();
+
+
+
+
+if (isset($_GET['edit'])) {
+  $linhas = file($arquivo);
+  $edit = (int) $_GET['edit'];
+  if (isset($linhas[$edit])) {
+    $linha = $linhas[$edit];
+    $dados = explode(";", trim($linha));
+    echo json_encode($dados);
+  } else {
+    echo json_encode([]);
+  }
+  exit;
+}
+
+
+if (file_exists($arquivo)) {
+  $linhas = file($arquivo);
+  foreach ($linhas as $i => $linha) {
+    if ($i == 0) continue; 
+    $d = explode(";", trim($linha));
+    if (count($d) < 5) continue;
+    echo htmlspecialchars($d[0]) . " | " . htmlspecialchars($d[1]) . " | " .
+         htmlspecialchars($d[2]) . " | " . htmlspecialchars($d[3]) . " | " .
+         htmlspecialchars($d[4]);
+    echo " <button onclick='editar($i)'>Editar</button>";
+
+  }
+}
 ?>
