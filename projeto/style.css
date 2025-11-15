@@ -1,0 +1,13 @@
+body {
+    background: #f5f7fa;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.accommodation-img {
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
