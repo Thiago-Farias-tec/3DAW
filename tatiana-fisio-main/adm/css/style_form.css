@@ -1,0 +1,57 @@
+:root{
+    --borda: #C4C4C4;
+}
+
+form{
+    border: 1px solid var(--borda);
+    padding: 2em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+input[type="text"], input[type="date"], input[type="time"]{
+    border: 1px solid var(--borda);
+    padding: 0.8em;
+}
+
+input:focus{outline: none;}
+
+fieldset{
+    border: 1px solid var(--borda);
+    padding: 1em;
+}
+
+legend{font: bold;}
+fieldset>label:not(:first-of-type){margin-top: 0.8em;}
+
+.agrupado{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+/*desktop inicio*/
+@media(min-width:1099px){
+    .agrupado{
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2em;
+    }
+
+    form{padding: 2em 3.8em;}
+    .agrupado fieldset, .agrupado label{flex: 1;}
+
+    .btn{
+        width: 20%;
+        margin: 0 auto;
+    }
+}
+/*desktop fim*/

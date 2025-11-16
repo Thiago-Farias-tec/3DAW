@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Administrador Fisioterapia</title>
+    
+    <link rel="stylesheet" href="../css/style_geral.css">
+    <link rel="stylesheet" href="../css/style_tabela.css">
+    <script src="https://kit.fontawesome.com/86b61fdc16.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+      <h1>SIS.adm</h1>
+      <button class="menu-btn" id="menu-btn"><i class="fa-solid fa-bars"></i></button>
+    </header>
+
+    <article class="container">
+      <nav class="menu" id="menu">
+        <ul>
+          <li><a href="clientes.html"><i class="fa-solid fa-users"></i> Clientes</a></li>
+          <li><a href="dias_de_fechamento.html"><i class="fa-solid fa-calendar-days"></i> Dias de Funcionamento</a></li>
+          <li><a href="../../public/html/home.html"><i class="fa-solid fa-right-from-bracket"></i></i> Sair</a></li>
+        </ul>
+
+        <section class="usuario">
+          <div class="avatar"><i class="fa-solid fa-web-awesome"></i></div>
+          <p>Logado como<br><span class="bold">ADM</span></p>
+        </section>
+      </nav>
+
+      <div class="conteudo">
+        <article class="bg-br indicador-nav">
+          <p><i class="fa-solid fa-users"></i> Clientes</p>
+        </article>
+          <main>
+          
+            <article>
+<button class="btn" onclick="window.location.href='adicionar_cliente.html'">
+    <i class="fa-solid fa-plus"></i> Adicionar Cliente
+</button>
+                <section class="barra-pesquisa">
+                    <input type="text" placeholder="Pesquisar..."> 
+                    <button class="btn" onclick=""><i class="fa-solid fa-magnifying-glass"></i></button>
+                </section>
+            </article>
+
+            <section  class="titulo-tabela">
+                    <i class="fa-solid fa-users"></i> Clientes
+            </section>
+            <table>
+              <thead>
+                  <tr>
+                      <th>Nome <button onclick=""><i class="fa-solid fa-sort"></i></button></th>
+                      <th>Data <button onclick=""><i class="fa-solid fa-sort"></i></button></th>
+                      <th>Hora <button onclick=""><i class="fa-solid fa-sort"></i></button></i></th>
+                      <th>Ações</th>
+                  </tr>
+              </thead>
+              <tbody id="tabela-clientes">
+</tbody>
+
+            </table>
+        </main>
+      </div>
+    </article>
+
+    <div class="overlay" id="overlay"></div>
+    <script src="../js/menu.js"></script>
+    <script src="../js/clientes.js"></script>    
+</body>
+</html>
