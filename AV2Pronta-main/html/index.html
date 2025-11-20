@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/carrossel.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/carrossel.js" defer></script>
+    <title>Alugel Maneiro - Página Inicial</title>
+</head>
+<body>
+      
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold text-dark" href="index.html">Alugel Maneiro</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="vagas.html">Acomodações</a></li>
+                <li class="nav-item"><a class="nav-link" href="experiencias.html">Experiências</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+    <div class="main-carousel">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://i.pinimg.com/736x/ef/b5/e1/efb5e1eb66bf41dc03e4ffd37f6059db.jpg" class="d-block w-100" alt="Cristo Redentor" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Visite os melhores pontos turisticos do Rio de Janeiro</h3>
+                        <p>Descubra passeios incríveis e momentos únicos em destinos paradisíacos.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/82/13/92/821392f814e3a830f3a31f2220242bf2.jpg" class="d-block w-100" alt="Passeio de barco" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Aventuras Inesquecíveis</h3>
+                        <p>Passeios de barco, trilhas ecológicas e muito mais.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/1200x/cc/53/06/cc5306727725943c503082319409850a.jpg" class="d-block w-100" alt="Cabana na floresta" style="height: 500px; object-fit: cover;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Conforto e Beleza</h3>
+                        <p>Hospede-se nos locais mais incríveis do mundo.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+    
+    <div class="container py-5">
+        <h2 class="text-center mb-5">Descubra o Melhor para Sua Viagem</h2>
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6" class="card-img-top" alt="Acomodações" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Acomodações</h5>
+                        <p class="card-text">Encontre a casa perfeita para sua viagem</p>
+                        <a href="vagas.html" class="btn btn-primary">Ver Acomodações</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21" class="card-img-top" alt="Experiências" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Experiências</h5>
+                        <p class="card-text">Vivencie momentos únicos e inesquecíveis</p>
+                        <a href="experiencias.html" class="btn btn-primary">Ver Experiências</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd" class="card-img-top" alt="Serviços" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Serviços</h5>
+                        <p class="card-text">Aulas e serviços especializados</p>
+                        <a href="servicos.html" class="btn btn-primary">Ver Serviços</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Alugel Maneiro</h5>
+                    <p>Encontre a acomodação perfeita para você!</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>&copy; <span id="current-year">2024</span> Alugel Maneiro. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

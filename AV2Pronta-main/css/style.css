@@ -1,0 +1,42 @@
+
+body {
+    background: #f5f7fa;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.accommodation-img {
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.navbar-brand {
+    color: black !important;
+    font-size: 1.5rem;
+}
+.navbar-brand.fw-bold.text-dark {
+            color: #000 !important;
+}
+
+.nav-link.active {
+    color: #e45705 !important;
+    font-weight: bold;
+}
+
+.btn-outline-primary {
+    border-color: #e45705;
+    color: #e45705;
+}
+
+.btn-outline-primary:hover {
+    background-color: #e45705;
+    border-color: #e45705;
+    color: white;
+}
+
+footer {
+    margin-top: auto;
+}
